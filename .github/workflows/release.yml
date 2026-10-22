@@ -1,0 +1,88 @@
+name: Build All-Platform Installers
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: linux
+          - os: windows-latest
+            target: windows
+          - os: macos-latest
+            target: macos
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Generate platform scaffolding
+        run: flutter create --platforms=android,ios,linux,macos,windows --org com.novaclash .
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Generate app icons
+        run: dart run flutter_launcher_icons
+
+      - name: Build Linux + Android
+        if: matrix.target == 'linux'
+        run: |
+          flutter build linux --release
+          flutter build apk --release --split-per-abi
+          flutter build appbundle --release
+          bash scripts/package_linux.sh
+
+      - name: Build Windows
+        if: matrix.target == 'windows'
+        shell: pwsh
+        run: |
+          flutter build windows --release
+          ./scripts/package_windows.ps1
+
+      - name: Build macOS + iOS
+        if: matrix.target == 'macos'
+        run: |
+          flutter build macos --release
+          flutter build ios --release --no-codesign
+          bash scripts/package_macos.sh
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: NovaClash-${{ matrix.target }}
+          path: dist/
+          if-no-files-found: ignore
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/**
+          generate_release_notes: true

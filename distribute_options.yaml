@@ -1,0 +1,29 @@
+# flutter_distributor 打包配置（用于在本地一键生成各平台真实安装包）
+# 用法：dart run flutter_distributor release --name <name>
+variables:
+  APP_NAME: NovaClash
+  APP_DESCRIPTION: NovaClash - 新一代跨平台代理客户端
+  APP_VERSION: 0.1.0
+  APP_BUILD_NUMBER: 1
+  PACKAGE_NAME: com.novaclash.app
+  APP_PUBLISHER: DaiYi
+  APP_PUBLISHER_EMAIL: 1703205607@qq.com
+  APP_PUBLISHER_URL: https://github.com/DaiYiqq/nova-clash
+
+output: dist/
+
+targets:
+  windows:
+    - nsis
+  macos:
+    - dmg
+  linux:
+    - deb
+    - rpm
+    - appimage
+    - tar
+  android:
+    - apk
+    - aab
+  ios:
+    - ipa

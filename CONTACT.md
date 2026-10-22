@@ -5,7 +5,7 @@
 | 项目 | 信息 |
 |------|------|
 | 项目名称 | NovaClash |
-| 开发者 | DaiYiqq |
+| 开发者 | DaiYi |
 | 联系邮箱 | 1703205607@qq.com |
 | 开源仓库 | https://github.com/DaiYiqq/nova-clash |
 | 在线演示 | https://DaiYiqq.github.io/nova-clash/ |

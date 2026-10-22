@@ -115,12 +115,18 @@ flutter run
 ## 👨‍💻 开发者信息与联系方式
 
 - **项目名称**：NovaClash
-- **开发者**：DaiYiqq
+- **开发者**：DaiYi
 - **联系邮箱**：1703205607@qq.com
 - **开源仓库**：https://github.com/DaiYiqq/nova-clash
 - **在线演示**：https://DaiYiqq.github.io/nova-clash/
 
 详见 [CONTACT.md](./CONTACT.md)。UI 架构与交互设计参考 FlClash（作者 chen08209），内核基于 mihomo/Clash。
+
+---
+
+## 📦 安装包（全平台）
+
+Windows（NSIS .exe）· macOS（.dmg）· Linux（.deb/.rpm/.AppImage）· Android（.apk/.aab）· iOS（.ipa）由 **GitHub Actions 自动构建**：推送 `v*` 标签即可发布到 Release。本地构建与打包详见 [docs/build.md](./docs/build.md)。
 
 ---
 

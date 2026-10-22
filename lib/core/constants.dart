@@ -29,7 +29,7 @@ class AppConstants {
   static const String issueUrl = 'https://github.com/DaiYiqq/nova-clash/issues';
 
   /// 开发者信息。
-  static const String developerName = 'DaiYiqq';
+  static const String developerName = 'DaiYi';
   static const String developerEmail = '1703205607@qq.com';
   static const String developerSite = 'https://github.com/DaiYiqq';
 }
