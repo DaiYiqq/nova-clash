@@ -9,24 +9,23 @@ New-Item -ItemType Directory -Force -Path $DIST | Out-Null
 Compress-Archive -Path "$SRC\*" -DestinationPath "$DIST\${APP_NAME}-${VERSION}-windows-x64.zip" -Force
 Write-Host "zip 便携包已生成"
 
-# 2) NSIS 安装程序（尽力而为：失败不影响 zip）
+# 2) NSIS 安装程序（尽力而为）
 try {
-  choco install nsis -y --no-progress | Out-Null
-  $mkPath = "C:\Program Files (x86)\NSIS\makensis.exe"
-  if (-not (Test-Path $mkPath)) {
-    $cmd = Get-Command makensis -ErrorAction SilentlyContinue
-    if ($cmd) { $mkPath = $cmd.Source }
-  }
-  if ($mkPath -and (Test-Path $mkPath)) {
+  $srcAbs = (Resolve-Path $SRC).Path
+  $mk = "C:\Program Files (x86)\NSIS\makensis.exe"
+  if (-not (Test-Path $mk)) { $cmd = Get-Command makensis -ErrorAction SilentlyContinue; if ($cmd) { $mk = $cmd.Source } }
+  if ($mk -and (Test-Path $mk)) {
     $exe = Get-ChildItem "$SRC\*.exe" | Select-Object -First 1
-    & $mkPath /DAPP_NAME="$APP_NAME" /DVERSION="$VERSION" /DSRC_DIR="$SRC" /DAPP_EXE="$($exe.Name)" /DOUT_FILE="$DIST\${APP_NAME}-${VERSION}-windows-x64-setup.exe" scripts\installer.nsi
-    Write-Host "NSIS 安装程序已生成"
+    & $mk /DAPP_NAME="$APP_NAME" /DVERSION="$VERSION" /DSRC_DIR="$srcAbs" /DAPP_EXE="$($exe.Name)" /DOUT_FILE="$DIST\${APP_NAME}-${VERSION}-windows-x64-setup.exe" scripts\installer.nsi
+    if ($LASTEXITCODE -eq 0) { Write-Host "NSIS 安装程序已生成" } else { Write-Host "NSIS 失败(退出码 $LASTEXITCODE)，仅保留 zip" }
   } else {
-    Write-Host "未找到 makensis，跳过 NSIS（仅 zip 便携包）"
+    Write-Host "未找到 makensis，跳过 NSIS（仅 zip）"
   }
 } catch {
-  Write-Host "NSIS 打包失败，已跳过（仅 zip 便携包）：$($_.Exception.Message)"
+  Write-Host "NSIS 异常，跳过（仅 zip）：$($_.Exception.Message)"
 }
+$global:LASTEXITCODE = 0
 
 Write-Host "--- dist/ ---"
 Get-ChildItem $DIST | ForEach-Object { Write-Host $_.Name }
+exit 0
