@@ -25,13 +25,13 @@ class AppConstants {
   static const String defaultTestUrl = 'https://www.gstatic.com/generate_204';
 
   /// 本项目开源仓库。
-  static const String repoUrl = 'https://github.com/Daiyiqq/nova-clash';
-  static const String issueUrl = 'https://github.com/Daiyiqq/nova-clash/issues';
+  static const String repoUrl = 'https://github.com/DaiYiqq/nova-clash';
+  static const String issueUrl = 'https://github.com/DaiYiqq/nova-clash/issues';
 
   /// 开发者信息。
-  static const String developerName = 'Daiyiqq';
+  static const String developerName = 'DaiYiqq';
   static const String developerEmail = '1703205607@qq.com';
-  static const String developerSite = 'https://github.com/Daiyiqq';
+  static const String developerSite = 'https://github.com/DaiYiqq';
 }
 
 /// 代理模式（连接模式）。
