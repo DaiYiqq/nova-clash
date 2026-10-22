@@ -84,11 +84,11 @@ class ClashCore {
     _controller?.close();
     _controller = null;
     p.kill(ProcessSignal.sigterm);
-    // 等待退出，避免僵尸进程。
-    await Future.delayed(const Duration(milliseconds: 300));
-    if (p.exitCode.then((_) => true).isCompleted == false) {
+    // 等待退出，超时则强制结束，避免僵尸进程。
+    await p.exitCode.timeout(const Duration(seconds: 2), onTimeout: () {
       p.kill(ProcessSignal.sigkill);
-    }
+      return 0;
+    });
   }
 
   Future<void> restart({required String configPath, String secret = ''}) async {

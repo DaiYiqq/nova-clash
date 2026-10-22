@@ -151,7 +151,7 @@ class RulesPage extends StatelessWidget {
                 : Column(
                     children: [
                       for (var i = 0; i < rules.length; i++)
-                        _ruleTile(cfg, rules[i], i),
+                        _ruleTile(context, cfg, rules[i], i),
                     ],
                   ),
           ),
@@ -176,7 +176,7 @@ class RulesPage extends StatelessWidget {
     );
   }
 
-  Widget _ruleTile(ConfigProvider cfg, Rule r, int index) {
+  Widget _ruleTile(BuildContext context, ConfigProvider cfg, Rule r, int index) {
     final scheme = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),

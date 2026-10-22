@@ -57,7 +57,7 @@ class Proxy {
         sni: json['sni'] as String?,
         network: json['network'] as String?,
         wsPath: (json['ws-opts'] as Map<String, dynamic>?)?['path'] as String?,
-        tls: json['tls'] as bool? == true ? 'true' : null,
+        tls: json['tls'] == true ? 'true' : null,
         servername: json['servername'] as String?,
         clientFingerprint: json['client-fingerprint'] as String?,
         obfs: json['obfs'] as String?,
