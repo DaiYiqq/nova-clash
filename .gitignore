@@ -1,0 +1,21 @@
+# Flutter/Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+*.iml
+.idea/
+.vscode/
+
+# Core binaries (用户自行下载，不随仓库分发)
+assets/core/*.exe
+assets/core/*.so
+assets/core/*.dylib
+assets/core/clash*
+assets/core/mihomo*
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
