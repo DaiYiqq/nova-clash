@@ -5,18 +5,15 @@
 | 项目 | 信息 |
 |------|------|
 | 项目名称 | NovaClash |
-| 开发者 | NovaClash 开发团队 |
-| 联系邮箱 | dev@novaclash.app |
-| 官方网站 | https://novaclash.app |
-| 开源仓库 | https://github.com/<你的用户名>/<你的仓库名> |
-| 问题反馈 | 在仓库 Issues 提交 bug 或功能建议 |
+| 开发者 | DaiYi-QQ |
+| 联系邮箱 | 1703205607@qq.com |
+| 开源仓库 | https://github.com/DaiYi-QQ/nova-clash |
+| 在线演示 | https://DaiYi-QQ.github.io/nova-clash/ |
 
 ## 反馈渠道
 
-- **Bug 反馈 / 功能建议**：请在 GitHub 仓库的 Issues 中提交，附上复现步骤与日志。
-- **邮件联系**：dev@novaclash.app（请在标题注明「NovaClash」）。
-
-> ⚠️ 以上为占位信息，请在上线前替换为你的真实联系方式（邮箱、官网、Telegram/社交账号等）。
+- **Bug 反馈 / 功能建议**：请在 [GitHub Issues](https://github.com/DaiYi-QQ/nova-clash/issues) 中提交，附上复现步骤与日志。
+- **邮件联系**：1703205607@qq.com（请在标题注明「NovaClash」）。
 
 ## 免责声明
 

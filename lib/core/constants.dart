@@ -24,14 +24,14 @@ class AppConstants {
   /// 测速与健康度检测默认地址。
   static const String defaultTestUrl = 'https://www.gstatic.com/generate_204';
 
-  /// 本项目开源仓库（占位，请替换为实际地址）。
-  static const String repoUrl = 'https://github.com/nova-clash/nova-clash';
-  static const String issueUrl = 'https://github.com/nova-clash/nova-clash/issues';
+  /// 本项目开源仓库。
+  static const String repoUrl = 'https://github.com/DaiYi-QQ/nova-clash';
+  static const String issueUrl = 'https://github.com/DaiYi-QQ/nova-clash/issues';
 
   /// 开发者信息。
-  static const String developerName = 'NovaClash 开发团队';
-  static const String developerEmail = 'dev@novaclash.app';
-  static const String developerSite = 'https://novaclash.app';
+  static const String developerName = 'DaiYi-QQ';
+  static const String developerEmail = '1703205607@qq.com';
+  static const String developerSite = 'https://github.com/DaiYi-QQ';
 }
 
 /// 代理模式（连接模式）。

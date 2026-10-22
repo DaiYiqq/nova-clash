@@ -11,7 +11,7 @@ NovaClash 是一个基于 **mihomo / Clash 内核** 的开源跨平台代理客�
 ## 📺 在线演示（Live Demo）
 
 - **交互式 UI 预览**：直接打开 [docs/ui-preview/index.html](./docs/ui-preview/index.html)（浏览器本地即可查看，无需编译）。
-- **在线地址（GitHub Pages）**：https://<你的用户名>.github.io/<你的仓库名>/
+- **在线地址（GitHub Pages）**：https://DaiYi-QQ.github.io/nova-clash/
 
 > 启用在线演示：仓库 Settings → Pages → Source 选择 **GitHub Actions**。已内置 [.github/workflows/pages.yml](./.github/workflows/pages.yml)，推送后自动把 `docs/ui-preview` 部署为在线 Demo。
 
@@ -115,14 +115,12 @@ flutter run
 ## 👨‍💻 开发者信息与联系方式
 
 - **项目名称**：NovaClash
-- **开发者**：NovaClash 开发团队
-- **联系邮箱**：dev@novaclash.app
-- **官方网站**：https://novaclash.app
-- **开源仓库**：https://github.com/<你的用户名>/<你的仓库名>
+- **开发者**：DaiYi-QQ
+- **联系邮箱**：1703205607@qq.com
+- **开源仓库**：https://github.com/DaiYi-QQ/nova-clash
+- **在线演示**：https://DaiYi-QQ.github.io/nova-clash/
 
 详见 [CONTACT.md](./CONTACT.md)。UI 架构与交互设计参考 FlClash（作者 chen08209），内核基于 mihomo/Clash。
-
-> ⚠️ 以上占位信息请替换为你的真实联系方式。
 
 ---
 
