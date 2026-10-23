@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 $APP_NAME = "NovaClash"
-$VERSION  = "0.1.0"
+$VERSION  = "0.1.7"
 $DIST     = "dist"
 $SRC      = "build\windows\x64\runner\Release"
 New-Item -ItemType Directory -Force -Path $DIST | Out-Null
@@ -54,7 +54,17 @@ try {
     $distAbs = (Resolve-Path $DIST).Path
     $exe = Get-ChildItem "$SRC\*.exe" | Select-Object -First 1
     $out = Join-Path $distAbs ($APP_NAME + "-" + $VERSION + "-windows-x64-setup.exe")
-    & $mk /DAPP_NAME="$APP_NAME" /DVERSION="$VERSION" /DSRC_DIR="$srcAbs" /DAPP_EXE="$($exe.Name)" /DOUT_FILE="$out" scripts\installer.nsi
+    $argList = @(
+      ('/DAPP_NAME="{0}"' -f $APP_NAME)
+      ('/DVERSION="{0}"' -f $VERSION)
+      ('/DSRC_DIR="{0}"' -f $srcAbs)
+      ('/DAPP_EXE="{0}"' -f $exe.Name)
+      ('/DOUT_FILE="{0}"' -f $out)
+    )
+    $ico = "assets\icon\icon.ico"
+    if (Test-Path $ico) { $argList += ('/DICON_PATH="{0}"' -f (Resolve-Path $ico).Path) }
+    $argList += "scripts\installer.nsi"
+    & $mk @argList
     if ((Test-Path $out) -and ($LASTEXITCODE -eq 0)) {
       Write-Host "NSIS 安装程序已生成: $out"
     } else {

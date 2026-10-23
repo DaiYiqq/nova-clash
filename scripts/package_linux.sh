@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 APP_NAME="NovaClash"
-VERSION="0.1.0"
+VERSION="0.1.7"
 BIN="nova_clash"
 DIST="dist"
 BUNDLE="build/linux/x64/release/bundle"

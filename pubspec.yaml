@@ -1,7 +1,7 @@
 name: nova_clash
 description: NovaClash - 新一代跨平台代理客户端，以 FlClash 为模板打造，内置多项创新功能。
 publish_to: 'none'
-version: 0.1.0+1
+version: 0.1.7+7
 
 environment:
   sdk: '>=3.3.0 <4.0.0'

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 APP_NAME="NovaClash"
-VERSION="0.1.0"
+VERSION="0.1.7"
 DIST="dist"
 mkdir -p "$DIST"
 

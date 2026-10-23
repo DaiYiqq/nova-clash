@@ -3,8 +3,8 @@ class AppConstants {
   AppConstants._();
 
   static const String appName = 'NovaClash';
-  static const String appVersion = '0.1.0';
-  static const int appBuild = 1;
+  static const String appVersion = '0.1.7';
+  static const int appBuild = 7;
 
   /// mihomo 外部控制器地址（本地回环）。
   static const String controllerHost = '127.0.0.1';
