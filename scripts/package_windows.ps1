@@ -55,14 +55,14 @@ try {
     $exe = Get-ChildItem "$SRC\*.exe" | Select-Object -First 1
     $out = Join-Path $distAbs ($APP_NAME + "-" + $VERSION + "-windows-x64-setup.exe")
     $argList = @(
-      ('/DAPP_NAME="{0}"' -f $APP_NAME)
-      ('/DVERSION="{0}"' -f $VERSION)
-      ('/DSRC_DIR="{0}"' -f $srcAbs)
-      ('/DAPP_EXE="{0}"' -f $exe.Name)
-      ('/DOUT_FILE="{0}"' -f $out)
+      ('/DAPP_NAME={0}' -f $APP_NAME)
+      ('/DVERSION={0}' -f $VERSION)
+      ('/DSRC_DIR={0}' -f $srcAbs)
+      ('/DAPP_EXE={0}' -f $exe.Name)
+      ('/DOUT_FILE={0}' -f $out)
     )
     $ico = "assets\icon\icon.ico"
-    if (Test-Path $ico) { $argList += ('/DICON_PATH="{0}"' -f (Resolve-Path $ico).Path) }
+    if (Test-Path $ico) { $argList += ('/DICON_PATH={0}' -f (Resolve-Path $ico).Path) }
     $argList += "scripts\installer.nsi"
     & $mk @argList
     if ((Test-Path $out) -and ($LASTEXITCODE -eq 0)) {
