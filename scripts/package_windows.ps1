@@ -51,8 +51,9 @@ try {
   }
   if ($mk) {
     $srcAbs = (Resolve-Path $SRC).Path
+    $distAbs = (Resolve-Path $DIST).Path
     $exe = Get-ChildItem "$SRC\*.exe" | Select-Object -First 1
-    $out = "$DIST\${APP_NAME}-${VERSION}-windows-x64-setup.exe"
+    $out = Join-Path $distAbs ($APP_NAME + "-" + $VERSION + "-windows-x64-setup.exe")
     & $mk /DAPP_NAME="$APP_NAME" /DVERSION="$VERSION" /DSRC_DIR="$srcAbs" /DAPP_EXE="$($exe.Name)" /DOUT_FILE="$out" scripts\installer.nsi
     if ((Test-Path $out) -and ($LASTEXITCODE -eq 0)) {
       Write-Host "NSIS 安装程序已生成: $out"
