@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 $APP_NAME = "NovaClash"
-$VERSION  = "0.1.7"
+$VERSION  = "0.1.9"
 $DIST     = "dist"
 $SRC      = "build\windows\x64\runner\Release"
 New-Item -ItemType Directory -Force -Path $DIST | Out-Null

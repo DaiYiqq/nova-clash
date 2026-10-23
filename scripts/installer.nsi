@@ -5,7 +5,7 @@ Unicode true
   !define APP_NAME "NovaClash"
 !endif
 !ifndef VERSION
-  !define VERSION "0.1.7"
+  !define VERSION "0.1.9"
 !endif
 !ifndef SRC_DIR
   !define SRC_DIR "build\windows\x64\runner\Release"

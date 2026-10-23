@@ -3,8 +3,8 @@
 variables:
   APP_NAME: NovaClash
   APP_DESCRIPTION: NovaClash - 新一代跨平台代理客户端
-  APP_VERSION: 0.1.7
-  APP_BUILD_NUMBER: 7
+  APP_VERSION: 0.1.9
+  APP_BUILD_NUMBER: 9
   PACKAGE_NAME: com.novaclash.app
   APP_PUBLISHER: DaiYi
   APP_PUBLISHER_EMAIL: 1703205607@qq.com
